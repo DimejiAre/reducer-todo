@@ -12,6 +12,8 @@ const initialState = [{
 
 function reducer (state, action){
     switch(action.type){
+        case 'ADD_TODO':
+            return [...state, {item: action.payload.item, completed: 'false', id: new Date()}]
         default:
             return state;
     }
