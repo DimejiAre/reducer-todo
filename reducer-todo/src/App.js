@@ -1,10 +1,10 @@
 import React from 'react';
 import Todos from './components/Todos';
-import './App.css';
+import './scss/App.scss'
 
 function App() {
   return (
-    <div className="App">
+    <div className="main-page">
       <h2>Todo List App</h2>
       <Todos />
     </div>

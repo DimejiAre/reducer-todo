@@ -1,5 +1,6 @@
 import React, {useState,useReducer} from 'react';
 import { reducer, initialState } from '../reducers/reducer';
+import '../scss/Todos.scss';
 
 const ADD_TODO = 'ADD_TODO';
 const MARK_COMPLETE = 'MARK_COMPLETE';
@@ -39,17 +40,18 @@ function Todos(){
     }
 
     return (
-        <div>
+        <div className='todos'>
             <form>
                 <input value={formValue} onChange={onChange} type='text' />
-                <button onClick={addTodo} type='submit'>Enter</button>
+                <button id='submit' onClick={addTodo} type='submit'>Enter</button>
             </form>
-            <button onClick={clearCompleted}>Clear Completed</button>
+            <button id='clear' onClick={clearCompleted}>Clear Completed</button>
             <ul>
             {
                 todos?
                 todos.map(todo => (
-                    <li key={todo.id} onClick={markComplete(todo.id)}>{todo.item}</li>
+                    <li className={'complete ' + (todo.completed? 'show' : 'hidden')}
+                    key={todo.id} onClick={markComplete(todo.id)}>{todo.item}</li>
                 ))
                 : null
             }
