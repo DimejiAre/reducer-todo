@@ -1,10 +1,11 @@
 import React, {useState,useReducer} from 'react';
 import { reducer, initialState } from '../reducers/reducer';
+import * as types from '../reducers/actionTypes';
 import '../scss/Todos.scss';
 
-const ADD_TODO = 'ADD_TODO';
-const MARK_COMPLETE = 'MARK_COMPLETE';
-const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+// const ADD_TODO = 'ADD_TODO';
+// const MARK_COMPLETE = 'MARK_COMPLETE';
+// const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 
 function Todos(){
 
@@ -14,7 +15,7 @@ function Todos(){
     const addTodo = event => {
         event.preventDefault();
         dispatch({
-            type: ADD_TODO,
+            type: types.ADD_TODO,
             payload: {item: formValue}
         })
         setFormValue('');
@@ -23,7 +24,7 @@ function Todos(){
     const markComplete = id => event => {
         event.preventDefault();
         dispatch({
-            type: MARK_COMPLETE,
+            type: types.MARK_COMPLETE,
             payload: {item_id: id}
         })
     }
@@ -31,7 +32,7 @@ function Todos(){
     const clearCompleted = event => {
         event.preventDefault();
         dispatch({
-            type: CLEAR_COMPLETED
+            type: types.CLEAR_COMPLETED
         })
     }
 
@@ -43,7 +44,7 @@ function Todos(){
         <div className='todos'>
             <form>
                 <input value={formValue} onChange={onChange} type='text' />
-                <button id='submit' onClick={addTodo} type='submit'>Enter</button>
+                <button id='submit' onClick={addTodo} type='submit'>Add Todo</button>
             </form>
             <button id='clear' onClick={clearCompleted}>Clear Completed</button>
             <ul>

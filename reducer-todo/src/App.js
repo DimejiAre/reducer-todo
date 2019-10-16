@@ -5,7 +5,7 @@ import './scss/App.scss'
 function App() {
   return (
     <div className="main-page">
-      <h2>Todo List App</h2>
+      <h2>Todo List</h2>
       <Todos />
     </div>
   );
